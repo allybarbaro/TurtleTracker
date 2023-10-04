@@ -16,13 +16,15 @@ file_name = './data/raw/sara.txt'
 file_object = open(file_name,'r')
 
 #Read contents of file into a list
-lineString = file_object.readline()
+line_list = file_object.readlines()
+
+#Close the file
+file_object.close()
 
 #Pretend we read one line of data from the file
-while lineString:
+for lineString in line_list:
     #Check if line is a data line
     if lineString[0] in ("#", "u"):
-        lineString = file_object.readline()
         continue
 
     #Split the string into a list of data items
